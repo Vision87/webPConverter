@@ -83,6 +83,8 @@ typings/
 #DynamoDB Local files
 .dynamodb/
 
+#Platform elaborated files
 public/uploads/*
+output/*
 
 # End of https://www.gitignore.io/api/node
