@@ -66,7 +66,7 @@ router.post('/convertToImage', upload.single('imageupload'), function(req, res, 
   console.log('Request -> ', req)
   console.log('Type -> ', req.body.imageType)
   const newImageType = req.body.imageType
-  const outputName = uniqid() + req.file.originalname + newImageType  
+  const outputName = `${uniqid()}${req.file.originalname}.${newImageType}`
   webp.dwebp(req.file.path, outputDir + outputName, "-mt -o", function(status){
     res.render('download', { title: 'Converting result', descr: `Download your converted ${newImageType}`, downloadLink: `/download/${outputName}`})
   })
