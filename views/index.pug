@@ -3,6 +3,16 @@ extends layout
 block content
   h1= title
   p= descr
-  form(method='post', enctype='multipart/form-data' action='/convert' v-on:submit="submitForm" id="convertForm")
+  form(method='post', enctype='multipart/form-data' action='/convertFromImage' id="convertFromImageForm")
     input(type='file', name='imageupload')
-    input(type='submit', name='uploadimage', value='Upload Image', v-on:click="clickSubmit")
+    input(type='submit', name='uploadimage', value='Upload Image')
+  
+  form(method='post', enctype='multipart/form-data' action='/convertToImage' id="convertToImageForm")
+    input(type='radio', name='imageType', value='gif')#gif
+    label(for='gif')='GIF'
+    input(type='radio', name='imageType', value='jpg')#jpg
+    label(for='jpg')='JPG'
+    input(type='radio', name='imageType', value='png')#png
+    label(for='png')='PNG'
+    input(type='file', name='imageupload')
+    input(type='submit', name='uploadimage', value='Upload WebP Image')
